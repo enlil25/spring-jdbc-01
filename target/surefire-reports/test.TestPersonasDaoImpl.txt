@@ -1,0 +1,37 @@
+-------------------------------------------------------------------------------
+Test set: test.TestPersonasDaoImpl
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.297 sec <<< FAILURE! - in test.TestPersonasDaoImpl
+deneriaMostrarPersonas(test.TestPersonasDaoImpl)  Time elapsed: 0.071 sec  <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [select id_persona,nombre,ape_paterno,ape_materno,email from Persona]; nested exception is java.sql.SQLSyntaxErrorException: Table 'springpruebas.Persona' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:536)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:513)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:115)
+	at com.mysql.cj.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:1983)
+	at com.mysql.cj.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:1936)
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1422)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:458)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:474)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:484)
+	at com.mycompany.jdbc.PersonaDaoImpl.findAllPersonas(PersonaDaoImpl.java:77)
+	at test.TestPersonasDaoImpl.deneriaMostrarPersonas(TestPersonasDaoImpl.java:32)
+
+testContarPersonasPorNombre(test.TestPersonasDaoImpl)  Time elapsed: 0.026 sec  <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [select count(*) from persona where nombre = ?]; nested exception is java.sql.SQLSyntaxErrorException: Table 'springpruebas.persona' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:536)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:513)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:115)
+	at com.mysql.cj.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:1983)
+	at com.mysql.cj.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1826)
+	at com.mysql.cj.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1923)
+	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:692)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:633)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:684)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:711)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:761)
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.queryForObject(NamedParameterJdbcTemplate.java:211)
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.queryForObject(NamedParameterJdbcTemplate.java:226)
+	at com.mycompany.jdbc.PersonaDaoImpl.contadorPersonasPorNombre(PersonaDaoImpl.java:89)
+	at test.TestPersonasDaoImpl.testContarPersonasPorNombre(TestPersonasDaoImpl.java:50)
+

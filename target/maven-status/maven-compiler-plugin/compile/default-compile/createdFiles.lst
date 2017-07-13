@@ -1,0 +1,4 @@
+com/mycompany/jdbc/PersonaDaoImpl.class
+com/mycompany/jdbc/PersonaDao.class
+com/mycompany/jdbc/Persona.class
+com/mycompany/jdbc/PersonaRowMapper.class
